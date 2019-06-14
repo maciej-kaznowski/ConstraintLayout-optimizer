@@ -17,7 +17,7 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:text="R.layout.activity_main"/>
 
-    <com.innercirclesoftware.constraintlayoutoptimisationdeterminer.HorizontalBoxPlotView
+    <com.github.maciejkaznowski.constraintlayoutoptimizer.HorizontalBoxPlotView
         android:id="@+id/box_plot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,2 +1,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.maciejkaznowski.constraintlayoutoptimizer" />
+    package="com.github.maciejkaznowski.constraintlayoutoptimizer">
+
+    <application>
+
+        <activity
+            android:name=".ConstraintOptimiserActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/OptimiserTheme" />
+
+        <activity
+            android:name=".ResultDetailsActivity"
+            android:label="@string/app_name"
+            android:theme="@style/OptimiserTheme" />
+
+    </application>
+
+
+</manifest>

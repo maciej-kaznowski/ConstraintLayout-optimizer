@@ -42,7 +42,7 @@ public class ConstraintOptimiserActivity extends Activity {
     }
 
     @NonNull
-    private static Intent getStartIntent(@NonNull Context context) {
+    public static Intent getStartIntent(@NonNull Context context) {
         Intent intent = new Intent(context, ConstraintOptimiserActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         return intent;

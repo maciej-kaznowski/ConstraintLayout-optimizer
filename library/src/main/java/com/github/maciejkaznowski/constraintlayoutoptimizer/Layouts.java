@@ -51,7 +51,7 @@ public class Layouts implements Parcelable {
     }
 
     @NonNull
-    public List<Layout> find(@NonNull Context context) throws RClassNotFoundException, LayoutClassNotFoundException, InvocationTargetException, CouldNotInstantiateLayoutConstructor, InstantiationException, IllegalAccessException, LayoutNotFoundException { //TODO remove throws exception
+    List<Layout> find(@NonNull Context context) throws RClassNotFoundException, LayoutClassNotFoundException, InvocationTargetException, CouldNotInstantiateLayoutConstructor, InstantiationException, IllegalAccessException, LayoutNotFoundException { //TODO remove throws exception
         //the R.layout class
         Class layoutResourceClass = getLayoutClass(context);
         Field[] layoutFields = layoutResourceClass.getDeclaredFields();
@@ -119,11 +119,11 @@ public class Layouts implements Parcelable {
         String RPackageName;
         String[] packages = appPackageName.split("\\.");
         System.out.println(Arrays.toString(packages));
-        if (packages.length <= 3) {
+//        if (packages.length <= 3) {
             RPackageName = appPackageName;
-        } else {
-            RPackageName = packages[0] + "." + packages[1] + "." + packages[2];
-        }
+//        } else {
+//            RPackageName = packages[0] + "." + packages[1] + "." + packages[2];
+//        }
 
         try {
             return Class.forName(RPackageName + ".R");
