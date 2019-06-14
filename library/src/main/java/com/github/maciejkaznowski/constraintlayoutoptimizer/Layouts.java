@@ -12,14 +12,23 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
 public class Layouts implements Parcelable {
 
-    private boolean includeAllLayouts;
+    public static final Parcelable.Creator<Layouts> CREATOR = new Parcelable.Creator<Layouts>() {
+        @Override
+        public Layouts createFromParcel(Parcel source) {
+            return new Layouts(source);
+        }
 
+        @Override
+        public Layouts[] newArray(int size) {
+            return new Layouts[size];
+        }
+    };
+    private boolean includeAllLayouts;
     //TODO This will cause autoboxing, but it doesn't matter too much since included/excluded layouts won't usually be big anyway
     private Set<Integer> includedLayouts;
     private Set<Integer> excludedLayouts;
@@ -28,6 +37,18 @@ public class Layouts implements Parcelable {
         this.includeAllLayouts = false;
         this.includedLayouts = new ArraySet<>();
         this.excludedLayouts = new ArraySet<>();
+    }
+
+    protected Layouts(Parcel in) {
+        this.includeAllLayouts = in.readByte() != 0;
+
+        List<Integer> includedLayoutsList = new ArrayList<>();
+        in.readList(includedLayoutsList, ArrayList.class.getClassLoader());
+        this.includedLayouts = new ArraySet<>(includedLayoutsList);
+
+        List<Integer> excludedLayoutsList = new ArrayList<>();
+        in.readList(excludedLayoutsList, ArrayList.class.getClassLoader());
+        this.excludedLayouts = new ArraySet<>(excludedLayoutsList);
     }
 
     @NonNull
@@ -116,14 +137,7 @@ public class Layouts implements Parcelable {
     private Class getRClass(@NonNull Context context) throws RClassNotFoundException {
         //returns the "R" resources class, e.g. com.company.app.R.class
         String appPackageName = context.getPackageName(); //might not be where the R class is, e.g. could be com.company.app.appended_package_name
-        String RPackageName;
-        String[] packages = appPackageName.split("\\.");
-        System.out.println(Arrays.toString(packages));
-//        if (packages.length <= 3) {
-            RPackageName = appPackageName;
-//        } else {
-//            RPackageName = packages[0] + "." + packages[1] + "." + packages[2];
-//        }
+        String RPackageName = appPackageName;
 
         try {
             return Class.forName(RPackageName + ".R");
@@ -152,6 +166,17 @@ public class Layouts implements Parcelable {
         return layouts;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeByte(this.includeAllLayouts ? (byte) 1 : (byte) 0);
+        dest.writeList(new ArrayList<>(this.includedLayouts));
+        dest.writeList(new ArrayList<>(this.excludedLayouts));
+    }
 
     private static class RClassNotFoundException extends ClassNotFoundException {
 
@@ -181,40 +206,4 @@ public class Layouts implements Parcelable {
             super("Could not instantiate layout constructor", e);
         }
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeByte(this.includeAllLayouts ? (byte) 1 : (byte) 0);
-        dest.writeList(new ArrayList<>(this.includedLayouts));
-        dest.writeList(new ArrayList<>(this.excludedLayouts));
-    }
-
-    protected Layouts(Parcel in) {
-        this.includeAllLayouts = in.readByte() != 0;
-
-        List<Integer> includedLayoutsList = new ArrayList<>();
-        in.readList(includedLayoutsList, ArrayList.class.getClassLoader());
-        this.includedLayouts = new ArraySet<>(includedLayoutsList);
-
-        List<Integer> excludedLayoutsList = new ArrayList<>();
-        in.readList(excludedLayoutsList, ArrayList.class.getClassLoader());
-        this.excludedLayouts = new ArraySet<>(excludedLayoutsList);
-    }
-
-    public static final Parcelable.Creator<Layouts> CREATOR = new Parcelable.Creator<Layouts>() {
-        @Override
-        public Layouts createFromParcel(Parcel source) {
-            return new Layouts(source);
-        }
-
-        @Override
-        public Layouts[] newArray(int size) {
-            return new Layouts[size];
-        }
-    };
 }
