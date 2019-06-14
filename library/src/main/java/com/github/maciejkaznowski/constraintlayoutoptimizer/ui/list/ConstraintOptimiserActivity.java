@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -64,6 +65,7 @@ public class ConstraintOptimiserActivity extends Activity {
     }
 
     private void measureLayouts() {
+        Toast.makeText(this, R.string.toast_measuring_layouts, Toast.LENGTH_LONG).show();
         List<OptimisationResultsAdapter.Item> items = new ArrayList<>();
 
         try {

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ConstraintLayout opimizer</string>
+    <string name="toast_measuring_layouts">Measuring layouts, this might take some time...</string>
 </resources>
