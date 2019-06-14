@@ -1,4 +1,4 @@
-package com.github.maciejkaznowski.constraintlayoutoptimizer;
+package com.github.maciejkaznowski.constraintlayoutoptimizer.data.measurer;
 
 import android.content.Context;
 import android.os.Parcel;
@@ -7,6 +7,8 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.github.maciejkaznowski.constraintlayoutoptimizer.Layout;
 
 import java.util.ArrayList;
 import java.util.Arrays;

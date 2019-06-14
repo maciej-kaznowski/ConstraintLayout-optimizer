@@ -10,7 +10,7 @@ import androidx.constraintlayout.solver.widgets.Optimizer;
 import java.util.ArrayList;
 import java.util.List;
 
-class Utils {
+public class Utils {
 
     @NonNull
     static String getLayoutHexString(@LayoutRes int layout) {
@@ -46,7 +46,7 @@ class Utils {
         return result;
     }
 
-    static String describeOptimisations(int optimizer) {
+    public static String describeOptimisations(int optimizer) {
         StringBuilder optimiserString = new StringBuilder();
 
         int highestFlag = Integer.highestOneBit(optimizer);
@@ -87,7 +87,7 @@ class Utils {
     }
 
     @NonNull
-    static String nsToMs(double ns) {
+    public static String nsToMs(double ns) {
         return String.format("%.2f", ns / 1_000_000F);
     }
 }

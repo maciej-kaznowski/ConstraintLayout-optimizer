@@ -1,4 +1,4 @@
-package com.github.maciejkaznowski.constraintlayoutoptimizer;
+package com.github.maciejkaznowski.constraintlayoutoptimizer.ui.list;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +9,13 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.github.maciejkaznowski.constraintlayoutoptimizer.Layout;
+import com.github.maciejkaznowski.constraintlayoutoptimizer.Layouts;
+import com.github.maciejkaznowski.constraintlayoutoptimizer.R;
+import com.github.maciejkaznowski.constraintlayoutoptimizer.data.measurer.DeterminedOptimisers;
+import com.github.maciejkaznowski.constraintlayoutoptimizer.data.measurer.ViewLayoutException;
+import com.github.maciejkaznowski.constraintlayoutoptimizer.data.measurer.ViewMeasureException;
 
 import java.util.ArrayList;
 import java.util.List;

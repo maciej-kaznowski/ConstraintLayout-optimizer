@@ -51,7 +51,7 @@ public class Layout implements Parcelable {
     }
 
     @NonNull
-    List<ConstraintLayout> getConstraintLayouts(@NonNull Context context) throws InflateException {
+    public List<ConstraintLayout> getConstraintLayouts(@NonNull Context context) throws InflateException {
         Log.d("Layout", "inflating " + toString());
         View inflatedLayout = inflate(context);
         return Utils.findAllViews(inflatedLayout, ConstraintLayout.class);
@@ -99,7 +99,7 @@ public class Layout implements Parcelable {
         dest.writeInt(this.resource);
     }
 
-    static class InflateException extends Throwable {
+    public static class InflateException extends Throwable {
 
         InflateException(@NonNull Throwable cause, @NonNull Layout layout) {
             super("Could not inflate layout " + layout);

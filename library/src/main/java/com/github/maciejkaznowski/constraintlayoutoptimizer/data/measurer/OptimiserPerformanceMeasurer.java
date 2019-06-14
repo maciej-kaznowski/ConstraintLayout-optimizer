@@ -1,4 +1,4 @@
-package com.github.maciejkaznowski.constraintlayoutoptimizer;
+package com.github.maciejkaznowski.constraintlayoutoptimizer.data.measurer;
 
 import android.view.View;
 

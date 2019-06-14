@@ -1,14 +1,16 @@
-package com.github.maciejkaznowski.constraintlayoutoptimizer;
+package com.github.maciejkaznowski.constraintlayoutoptimizer.data.measurer;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.github.maciejkaznowski.constraintlayoutoptimizer.Utils;
 
 import java.util.Arrays;
 
 import static com.github.maciejkaznowski.constraintlayoutoptimizer.Utils.nsToMs;
 
 
-class OptimiserResult implements Parcelable {
+public class OptimiserResult implements Parcelable {
 
     private final long minDuration;
     private final long maxDuration;

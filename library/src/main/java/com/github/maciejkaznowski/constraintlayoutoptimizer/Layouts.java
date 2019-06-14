@@ -72,7 +72,7 @@ public class Layouts implements Parcelable {
     }
 
     @NonNull
-    List<Layout> find(@NonNull Context context) throws RClassNotFoundException, LayoutClassNotFoundException, InvocationTargetException, CouldNotInstantiateLayoutConstructor, InstantiationException, IllegalAccessException, LayoutNotFoundException { //TODO remove throws exception
+    public List<Layout> find(@NonNull Context context) throws RClassNotFoundException, LayoutClassNotFoundException, InvocationTargetException, CouldNotInstantiateLayoutConstructor, InstantiationException, IllegalAccessException, LayoutNotFoundException { //TODO remove throws exception
         //the R.layout class
         Class layoutResourceClass = getLayoutClass(context);
         Field[] layoutFields = layoutResourceClass.getDeclaredFields();

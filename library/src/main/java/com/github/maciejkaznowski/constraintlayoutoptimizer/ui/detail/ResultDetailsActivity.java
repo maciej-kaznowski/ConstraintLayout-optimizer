@@ -1,4 +1,4 @@
-package com.github.maciejkaznowski.constraintlayoutoptimizer;
+package com.github.maciejkaznowski.constraintlayoutoptimizer.ui.detail;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.github.maciejkaznowski.constraintlayoutoptimizer.data.measurer.DeterminedOptimisers;
+import com.github.maciejkaznowski.constraintlayoutoptimizer.Layout;
+import com.github.maciejkaznowski.constraintlayoutoptimizer.R;
+import com.github.maciejkaznowski.constraintlayoutoptimizer.Utils;
 
 public class ResultDetailsActivity extends AppCompatActivity {
 

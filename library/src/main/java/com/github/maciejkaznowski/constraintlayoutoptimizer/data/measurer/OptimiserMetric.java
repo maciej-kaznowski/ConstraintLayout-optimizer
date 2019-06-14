@@ -1,6 +1,8 @@
-package com.github.maciejkaznowski.constraintlayoutoptimizer;
+package com.github.maciejkaznowski.constraintlayoutoptimizer.data.measurer;
 
 import androidx.annotation.NonNull;
+
+import com.github.maciejkaznowski.constraintlayoutoptimizer.Utils;
 
 class OptimiserMetric {
 

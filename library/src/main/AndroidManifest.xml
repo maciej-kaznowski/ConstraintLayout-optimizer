@@ -4,13 +4,13 @@
     <application>
 
         <activity
-            android:name=".ConstraintOptimiserActivity"
+            android:name=".ui.list.ConstraintOptimiserActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/OptimiserTheme" />
 
         <activity
-            android:name=".ResultDetailsActivity"
+            android:name=".ui.detail.ResultDetailsActivity"
             android:label="@string/app_name"
             android:theme="@style/OptimiserTheme" />
 

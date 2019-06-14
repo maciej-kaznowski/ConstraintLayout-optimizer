@@ -1,27 +1,29 @@
-package com.github.maciejkaznowski.constraintlayoutoptimizer;
+package com.github.maciejkaznowski.constraintlayoutoptimizer.data.measurer;
 
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-class ViewMeasureException extends Throwable {
+import com.github.maciejkaznowski.constraintlayoutoptimizer.Layout;
+
+public class ViewLayoutException extends Throwable {
 
     @NonNull private final View view;
     @NonNull private String message;
     @Nullable private Layout layout;
 
-    public ViewMeasureException(@NonNull Layout layout, @NonNull ViewMeasureException source) {
+    public ViewLayoutException(@NonNull Layout layout, @NonNull ViewLayoutException source) {
         this(source.getView(), source.getCause());
         this.layout = layout;
-        this.message = "Could not measure " + source.getView() + " in layout resource " + layout.getResourceName() + "\n" + source.getCause();
+        this.message = "Could not layout " + source.getView() + " in layout resource " + layout.getResourceName() + "\n" + source.getCause();
     }
 
-    public ViewMeasureException(@NonNull View view, @NonNull Throwable cause) {
+    public ViewLayoutException(@NonNull View view, @NonNull Throwable cause) {
         super(cause);
         this.view = view;
         this.layout = null;
-        this.message = "Could not measure " + view + "\n" + cause;
+        this.message = "Could not layout " + view + "\n" + cause;
     }
 
     @NonNull
